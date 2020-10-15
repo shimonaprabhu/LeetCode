@@ -1,0 +1,6 @@
+for i in range(len(nums)):
+    if nums[i]==val:
+        count=count+1
+for i in range(0,count):
+    nums.remove(val)
+print(len(nums))
