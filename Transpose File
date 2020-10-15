@@ -1,0 +1,9 @@
+fp=open("file.txt",'wr')
+name=[]
+age=[]
+for line in fp:
+  name.append(line.split(' ')[0]+' ')
+  age.append(line.split(' ')[1].strip()+' ')
+fp.writelines(name)
+fp.writelines('\n')
+fp.writelines(age)
