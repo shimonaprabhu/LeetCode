@@ -1,0 +1,16 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        h={}
+        for i in range(len(s)):
+            if s[i] in h.keys():        
+                h[s[i]]=+h[s[i]]+1
+            else:        
+                h[s[i]]=1
+        flag = 0
+        for i in range(len(s)):
+            if h[s[i]]==1:
+                flag=1
+                return i
+        if flag==0:
+            return -1
+            
