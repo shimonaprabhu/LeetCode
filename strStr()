@@ -1,0 +1,26 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if needle=='':
+            return 0
+        if len(haystack)<len(needle):
+            return -1
+        flag=0
+        count=0
+        for i in range(len(haystack)):
+            if haystack[i]==needle[0]:
+                pos=i
+                ind=i
+                for j in range(len(needle)):
+                    if(ind<=len(haystack)-1):
+                        if needle[j]==haystack[ind]:
+                            print(ind)
+                            ind=ind+1
+                            count=count+1
+                        else:
+                            break
+                if count==len(needle):
+                    flag=1
+                    return pos
+                count=0
+        if flag==0:
+            return -1
