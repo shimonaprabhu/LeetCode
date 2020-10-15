@@ -1,0 +1,13 @@
+class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        fin1=0
+        fin2=0
+        for i in range(0,len(num1)):
+            fin1=(ord(num1[i])-ord('0'))+fin1*10
+            print(fin1)
+        for i in range(0,len(num2)):
+            fin2=(ord(num2[i])-ord('0'))+fin2*10
+            print(fin2)
+        return str(fin1*fin2)
+            
+        
