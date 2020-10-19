@@ -1,0 +1,10 @@
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        def trib(n):
+            if n==0:
+                return 0
+            elif n==1 or n==2:
+                return 1
+            else:
+                return (trib(n-3)+trib(n-2)+trib(n-1))
+        return trib(n)
