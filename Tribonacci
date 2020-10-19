@@ -8,3 +8,16 @@ class Solution:
             else:
                 return (trib(n-3)+trib(n-2)+trib(n-1))
         return trib(n)
+        
+#TLE, Using Memoization
+
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        res=[0,1,1]
+        def trib(n):
+            if n<=len(res)-1:
+                return res[n]
+            else:
+                res.append(trib(n-3)+trib(n-2)+trib(n-1))
+                return (trib(n-3)+trib(n-2)+trib(n-1))
+        return trib(n)
