@@ -1,0 +1,39 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        new=''
+        sumnum=0
+        flag=0
+        
+        s=s.strip()
+        
+        if s=="":
+            return 0
+        
+        if (ord(s[0])!=45 and ord(s[0])!=43) and (ord(s[0])<48 or ord(s[0])>57):
+            return 0
+        
+        if ord(s[0])==45:
+            flag=1
+        
+        if flag==1 or ord(s[0])==43:
+            s=s[1:]
+
+        for i in range(len(s)):
+            if ord(s[i])>=48 and ord(s[i])<=57:
+                new=new+s[i]
+            else:
+                break
+
+        for i in range(len(new)):
+            sumnum=sumnum*10+(ord(new[i])-48)
+
+        if flag==1:
+            sumnum=sumnum*-1
+  
+        
+        if sumnum <=(-2**31):
+            return -2**31
+        elif sumnum>=(2**31-1):
+            return 2**31-1
+        else:
+            return sumnum
