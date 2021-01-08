@@ -4,5 +4,15 @@ class Solution:
             nums.remove(0)
             nums.append(0)
         print(nums)
+#Alternate Solution                
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        second=0
+        for first in range(len(nums)):
+            if nums[first]!=0:
+                temp=nums[first]
+                nums[first]=nums[second]
+                nums[second]=temp
+                second=second+1
                 
-   
+                 
