@@ -1,0 +1,13 @@
+intervals = [[1,4],[0,4]]
+
+s=intervals[0][0]
+e=intervals[0][1]
+merge=[]
+for i,li in enumerate(intervals):
+    print(e)
+    print(li[0])
+    if e>=li[0] and i!=0:
+        intervals.remove(li)
+        intervals.remove(intervals[i-1])
+        intervals.insert(i-1, [min(s,li[0]),max(e,li[1])])
+        print(intervals)
