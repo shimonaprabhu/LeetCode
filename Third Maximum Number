@@ -1,0 +1,15 @@
+#Runtime: 56 ms, faster than 44.84% of Python3 online submissions for Third Maximum Number.
+#Memory Usage: 15.5 MB, less than 42.70% of Python3 online submissions for Third Maximum Number.
+
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        
+        unique = list(set(nums))
+        
+        if len(unique) < 3:
+            return max(unique)
+        
+        unique.remove(max(unique))
+        unique.remove(max(unique))
+        
+        return (max(unique))
