@@ -1,0 +1,33 @@
+#Runtime: 48 ms, faster than 64.55% of Python3 online submissions for Valid Palindrome.
+#Memory Usage: 14.8 MB, less than 43.05% of Python3 online submissions for Valid Palindrome.
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        
+        s = (''.join(x for x in s if x.isalpha() or x.isnumeric())).lower()
+       
+        temp = ''
+        for i in range(len(s)-1,-1,-1):
+            temp = temp+s[i]
+        return (temp == s)
+
+#Runtime: 44 ms, faster than 78.95% of Python3 online submissions for Valid Palindrome.
+#Memory Usage: 14.3 MB, less than 99.03% of Python3 online submissions for Valid Palindrome.
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        
+        l, r = 0, len(s) - 1
+        
+        while l<r:
+            while l < r and not s[l].isalnum():
+                l+=1
+            while l < r and not s[r].isalnum():
+                r-=1
+            if s[l].lower() != s[r].lower():
+                return False
+            l+=1
+            r-=1
+        
+        return True
+            
