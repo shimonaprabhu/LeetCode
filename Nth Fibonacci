@@ -1,0 +1,30 @@
+#Runtime: 936 ms, faster than 11.00% of Python3 online submissions for Fibonacci Number.
+#Memory Usage: 14.3 MB, less than 8.05% of Python3 online submissions for Fibonacci Number.
+
+class Solution:
+    def fib(self, n: int) -> int:
+        if n <= 1:
+          return n
+        else:
+            return self.fib(n-1)+self.fib(n-2)
+ 
+#Runtime: 28 ms, faster than 85.91% of Python3 online submissions for Fibonacci Number.
+#Memory Usage: 14.3 MB, less than 39.67% of Python3 online submissions for Fibonacci Number.
+
+class Solution:
+    def fib(self, N):
+        golden_ratio = (1 + 5 ** 0.5) / 2
+        return int((golden_ratio ** N + 1) / 5 ** 0.5)
+        
+#Runtime: 28 ms, faster than 85.91% of Python3 online submissions for Fibonacci Number.
+#Memory Usage: 14.2 MB, less than 69.74% of Python3 online submissions for Fibonacci Number.
+
+class Solution:
+    def fib(self, N):
+        if N <= 1:
+            return N
+        cache = {0:0, 1:1}
+        for i in range(2,N+1):
+            cache[i] = cache[i-1] + cache[i-2]
+        return cache[N]
+        
