@@ -1,3 +1,6 @@
+#Runtime: 216 ms, faster than 16.63% of Python3 online submissions for First Unique Character in a String.
+#Memory Usage: 14.5 MB, less than 20.88% of Python3 online submissions for First Unique Character in a String.
+
 class Solution:
     def firstUniqChar(self, s: str) -> int:
         h={}
@@ -13,4 +16,26 @@ class Solution:
                 return i
         if flag==0:
             return -1
+
+#Runtime: 112 ms, faster than 66.08% of Python3 online submissions for First Unique Character in a String.
+#Memory Usage: 14.4 MB, less than 69.89% of Python3 online submissions for First Unique Character in a String.
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        mapd = {}
+        index = sys.maxsize
+        for c in s:
+            if c not in mapd:
+                mapd[c] = 1
+            else:
+                mapd[c] = mapd[c] + 1
+        
+        for letter, freq in mapd.items():
+            if freq == 1:
+                index = min(index,s.index(letter))
+        
+                
+        if index == sys.maxsize:
+            return -1
+        return index
             
