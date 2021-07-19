@@ -1,0 +1,48 @@
+#Runtime: 44 ms, faster than 50.38% of Python3 online submissions for Remove Duplicates from Sorted List II.
+#Memory Usage: 14.2 MB, less than 57.04% of Python3 online submissions for Remove Duplicates from Sorted List II.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        mapd = {}
+        temp = head
+        traverse = head
+        while temp:
+            if temp.val not in mapd:
+                mapd[temp.val] = 1
+                
+            else:
+                mapd[temp.val] = mapd[temp.val] + 1
+            temp = temp.next
+        
+        new = ListNode(0)
+        ret = new
+        for val,freq in mapd.items():
+            if freq == 1:
+                new.next =  ListNode(val)
+                new = new.next
+        return ret.next
+                
+#Runtime: 32 ms, faster than 98.34% of Python3 online submissions for Remove Duplicates from Sorted List II.
+#Memory Usage: 14.4 MB, less than 26.24% of Python3 online submissions for Remove Duplicates from Sorted List II.
+
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+
+        sentinel = ListNode(0, head)
+        pred = sentinel
+        
+        while head:
+            if head.next and head.val == head.next.val:
+                while head.next and head.val == head.next.val:
+                    head = head.next
+                pred.next = head.next 
+            else:
+                pred = pred.next 
+            head = head.next
+            
+        return sentinel.next      
