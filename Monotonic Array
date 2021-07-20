@@ -1,0 +1,37 @@
+#Runtime: 520 ms, faster than 23.36% of Python3 online submissions for Monotonic Array.
+#Memory Usage: 20.7 MB, less than 33.99% of Python3 online submissions for Monotonic Array.
+
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        inc = 1
+        dec = 1
+        eq = 0
+        
+        for i in range(len(nums)-1):
+            if nums[i] < nums[i+1]:
+                inc+=1
+            elif nums[i] > nums[i+1]:
+                dec+=1
+            elif nums[i] == nums[i+1]:
+                eq+=1
+
+        if inc + eq == len(nums) or dec+eq == len(nums):
+            return True
+        return False
+        
+#Runtime: 480 ms, faster than 53.05% of Python3 online submissions for Monotonic Array.
+#Memory Usage: 20.8 MB, less than 18.09% of Python3 online submissions for Monotonic Array.
+
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        
+        i, j = 0, 0
+        
+        while i < len(nums)-1 and nums[i]>=nums[i+1]:
+            i=i+1        
+        while j < len(nums)-1 and nums[j]<=nums[j+1]:
+            j=j+1
+
+        if i==len(nums)-1 or j==len(nums)-1:
+            return True
+        return False
