@@ -1,0 +1,10 @@
+import collections
+class Solution:
+
+    def firstRepeated(self,arr, n):
+        count = collections.Counter(arr)
+
+        for idx, ch in enumerate(arr):
+            if count[ch] != 1:
+                return idx+1     
+        return -1
