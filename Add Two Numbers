@@ -1,0 +1,73 @@
+#Runtime: 192 ms, faster than 5.25% of Python3 online submissions for Add Two Numbers.
+#Memory Usage: 14.6 MB, less than 13.32% of Python3 online submissions for Add Two Numbers.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        num1=[]
+        num2=[]
+        while l1:
+            num1.append(l1.val)
+            l1=l1.next
+        while l2:
+            num2.append(l2.val)
+            l2=l2.next
+            
+        strings = [str(integer) for integer in num1[::-1]]
+        a_string = "".join(strings)
+        num1 = int(a_string)
+        
+        strings = [str(integer) for integer in num2[::-1]]
+        a_string = "".join(strings)
+        num2 = int(a_string)
+        
+        suml = num1+num2
+        newl = [int(d) for d in str(suml)]
+        newl = newl[::-1]
+        
+        head = ListNode(newl[0])
+        tail = head
+        e = 1
+        while e < len(newl):
+            print(head)
+            tail.next = ListNode(newl[e])
+            tail = tail.next
+            e+=1
+        return head
+        
+        
+#Runtime: 64 ms, faster than 89.91% of Python3 online submissions for Add Two Numbers.
+#Memory Usage: 14.4 MB, less than 44.76% of Python3 online submissions for Add Two Numbers.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        p, q = l1, l2
+        newNode = ListNode(0)
+        curr = newNode
+        carry = 0
+        
+        while p != None or q != None:
+            x = p.val if p != None else 0
+            y = q.val if q != None else 0
+            sumn = carry + x + y
+            carry = sumn // 10
+            curr.next = ListNode(sumn % 10)
+            curr = curr.next
+            if p != None:
+                p = p.next 
+            if q != None:
+                q = q.next 
+            
+        if carry > 0:
+            curr.next = ListNode(carry)
+            
+        return newNode.next
