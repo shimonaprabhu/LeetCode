@@ -1,5 +1,5 @@
-Runtime: 612 ms, faster than 13.30% of Python3 online submissions for Min Stack.
-Memory Usage: 18.3 MB, less than 27.70% of Python3 online submissions for Min Stack.
+#Runtime: 612 ms, faster than 13.30% of Python3 online submissions for Min Stack.
+#Memory Usage: 18.3 MB, less than 27.70% of Python3 online submissions for Min Stack.
 
 class MinStack:
 
