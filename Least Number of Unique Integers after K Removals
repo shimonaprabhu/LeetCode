@@ -1,0 +1,21 @@
+#Runtime: 491 ms, faster than 68.22% of Python3 online submissions for Least Number of Unique Integers after K Removals.
+#Memory Usage: 33.7 MB, less than 40.79% of Python3 online submissions for Least Number of Unique Integers after K Removals.
+
+
+class Solution:
+    def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+        mapp = {}
+        for num in arr:
+            if num in mapp:
+                mapp[num] = mapp[num]+1
+            else:
+                mapp[num] = 1
+        for key, value in sorted(mapp.items(), key=lambda x: x[1]):
+            if value <= k:                
+                del mapp[key]
+                k = k - value
+                
+        return (len(mapp.keys()))
+                       
+       
+    
